@@ -12,8 +12,8 @@ if (!defined('ABSPATH')) {
 }
 
 function fedipress_enqueue_scripts() {
-    wp_enqueue_style('meu-plugin-estilo', plugin_dir_url(__FILE__) . 'css/friends.css');
-    wp_enqueue_script('meu-plugin-script', plugin_dir_url(__FILE__) . 'js/meu-script.js', array('jquery'), null, true);
+    wp_enqueue_style('fedipress-style', plugin_dir_url(__FILE__) . 'css/friends.css');
+    wp_enqueue_script('fedipress-script', plugin_dir_url(__FILE__) . 'js/friends.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'fedipress_enqueue_scripts');
 
