@@ -8,6 +8,35 @@
 
 	wp = wp || { ajax: { send() {}, post() {} } };
 
+	$('input[name=title]').addClass('form-input');
+	$('textarea').addClass('form-input');
+	$('button').addClass('btn btn-primary input-group-btn');
+	$('details').removeAttr('open');
+	$('.friends-widget').each(function(index, div) {
+		$('form').prev().remove();
+		$('br').remove();
+		$('small').remove();
+		$(div).find('button').each(function(index, button) {
+			var itemText = $(button).text();
+			if (itemText == 'Post to your friends') {
+				$(button).html('Publicar');
+				$(button).parent().css('text-align', 'right');
+			}
+		});
+		$(div).find('h5').each(function(index, h5) {
+			var itemText = $(h5).text();
+			if (itemText == 'Recent Friends') {
+				$(h5).html('<span class="dashicons dashicons-admin-users"></span> Amigos recentes');
+			}
+			$(h5).find('a').each(function(index, a) {
+				var itemText = $(a).text();
+				if (itemText == 'Friends') {
+					$(a).html('<span class="dashicons dashicons-admin-comments"></span> <a href="/friends/?refresh"> Feed</a>');
+				}
+			});
+		});
+	});
+
 	$document.on(
 		'keydown',
 		'input#master-search, .form-autocomplete a',
