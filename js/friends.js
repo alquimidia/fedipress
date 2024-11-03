@@ -8,6 +8,7 @@
 
 	wp = wp || { ajax: { send() {}, post() {} } };
 
+	// Customiza layout dos ítens da barra lateral
 	$('input[name=title]').addClass('form-input');
 	$('textarea').addClass('form-input');
 	$('button').addClass('btn btn-primary input-group-btn');
@@ -36,6 +37,14 @@
 			});
 		});
 	});
+
+	// Customiza o layout dos posts do feed
+	$('article').removeClass('col-10');
+	$('article').addClass('col-12');
+	$('article').addClass('card');
+	$('a.comments.btn').html('<span class="dashicons dashicons-admin-comments"></span>');
+	$('a.new-reaction.btn').html('<i class="dashicons dashicons-plus"></i>');
+	// $('article footer a').removeClass('btn');
 
 	$document.on(
 		'keydown',
