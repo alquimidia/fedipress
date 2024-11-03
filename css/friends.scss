@@ -110,6 +110,37 @@ div {
 	background: #f7f8f9;
 }
 
+// Aplica cores conforme tema do dispositivo
+@media (prefers-color-scheme: dark) {
+	body{
+		background: #1E2327 !important;
+	}
+	.off-canvas .off-canvas-sidebar, .off-canvas-content {
+		background: #1E2327 !important;
+		color: white !important;
+		.friends-widget a{
+			color: white !important;
+		}
+	}
+	article{
+		background: #313443 !important;
+		color: white !important;
+		header a, footer a{
+			color: white !important;
+		}
+		.btn, .friends-page .nav-links div a, .friends-page .nav-links div a:hover{
+			background: unset !important;
+			border: unset !important;
+			color: wh;
+		}
+	}
+
+}
+
+#main-header #page-title{
+	display: none !important;
+}
+
 .off-canvas .off-canvas-content header.navbar #page-title {
 	margin-left: 3rem;
 }
