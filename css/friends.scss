@@ -112,16 +112,18 @@ div {
 
 // Aplica cores conforme tema do dispositivo
 @media (prefers-color-scheme: dark) {
-	body{
-		background: #1E2327 !important;
-	}
-	.off-canvas .off-canvas-sidebar, .off-canvas-content {
+	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content, .friends-page .card{
 		background: #1E2327 !important;
 		color: white !important;
-		.friends-widget a{
-			color: white !important;
-		}
+		.friends-widget
+			a{
+				color: white !important;
+			}
+			a:hover{
+				text-decoration: none;
+			}
 	}
+
 	article{
 		background: #313443 !important;
 		color: white !important;
@@ -136,7 +138,7 @@ div {
 	}
 
 }
-
+// Remove título do Feed
 #main-header #page-title{
 	display: none !important;
 }
