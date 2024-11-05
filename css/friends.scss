@@ -112,11 +112,11 @@ div {
 
 // Aplica cores conforme tema do dispositivo
 @media (prefers-color-scheme: dark) {
-	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content, .friends-page .card{
+	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content{
 		background: #1E2327 !important;
 		color: white !important;
 		.friends-widget
-			a{
+			a, h5{
 				color: white !important;
 			}
 			a:hover{
@@ -125,8 +125,12 @@ div {
 	}
 
 	article{
+		border: unset !important;
 		background: #313443 !important;
 		color: white !important;
+		.friends-page .card{
+			border: unset !important;
+		}
 		header a, footer a{
 			color: white !important;
 		}
@@ -134,6 +138,9 @@ div {
 			background: unset !important;
 			border: unset !important;
 			color: wh;
+		}
+		.col-10{
+			width: 100% !important;
 		}
 	}
 
