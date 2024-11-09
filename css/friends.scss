@@ -1,6 +1,7 @@
 $primary-color: #2e5bec;
 $dark-color: #3e396b;
 $border-color-light: #eee;
+$body-bg:#f7f8f9;
 
 div {
 	min-width: 0; // fixes overflowing <pre>
@@ -137,7 +138,7 @@ div {
 		.btn, .friends-page .nav-links div a, .friends-page .nav-links div a:hover{
 			background: unset !important;
 			border: unset !important;
-			color: wh;
+			color: white;
 		}
 		.col-10{
 			width: 100% !important;
@@ -171,7 +172,7 @@ h2#page-title a.dashicons {
 }
 
 .friends-page {
-	background-color: $body-bg;
+	background-color: $body-bg !important;
 	color: $body-font-color;
 	overflow-wrap: break-word;
 
@@ -484,6 +485,10 @@ h2#page-title a.dashicons {
 	}
 
 	div.friends-widget {
+		margin-bottom: 2em;
+	}
+
+	div.friends-widget details {
 		margin-bottom: 2em;
 	}
 

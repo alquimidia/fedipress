@@ -13,6 +13,16 @@
 	$('textarea').addClass('form-input');
 	$('button').addClass('btn btn-primary input-group-btn');
 	$('details').removeAttr('open');
+	// Customiza menu Subscriptions
+	if ($("details summary h5 span").hasClass( "subscription-count" )) {
+		var subscriptioncount = $(".subscription-count").prop('outerHTML');
+		$(".subscription-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Seguidores '+subscriptioncount);
+	}
+	// Customiza menu de Friends Request
+	if ($("details summary h5 a").hasClass( "open-requests" )) {
+		var openRequests = $(".open-requests .friend-count").text();
+		$(".open-requests").parent().html('<span class="dashicons dashicons-admin-users"></span> Solicitações <span class="subscription-count">'+openRequests+'</span>');
+	}
 	$('.friends-widget').each(function(index, div) {
 		$('form').prev().remove();
 		$('br').remove();
@@ -24,16 +34,19 @@
 				$(button).parent().css('text-align', 'right');
 			}
 		});
+		// Customiza menu Recent Friends
 		$(div).find('h5').each(function(index, h5) {
 			var itemText = $(h5).text();
 			if (itemText == 'Recent Friends') {
 				$(h5).html('<span class="dashicons dashicons-admin-users"></span> Amigos recentes');
 			}
 		});
+		// Customiza menu Refresh
 		$(div).find('a').each(function(index, a) {
 			var itemText = $(a).text();
 			if (itemText == 'Refresh') {
-				$(a).html('<h5><span class="dashicons dashicons-admin-comments"></span> Feed</h5>');
+				var itemHtml = $(div).html();
+				$(div).html('<h5><span class="dashicons dashicons-admin-comments"></span>'+itemHtml+'</h5>');
 			}
 		});
 	});
