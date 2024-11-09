@@ -53,10 +53,7 @@
 
 	$('.friends-widget:nth-of-type(4)').after('<div class="friends-widget"><h5><a href="/friends/reaction2b50"><span class="dashicons dashicons-star-filled"></span> Favoritos</a></h5></div>');
 
-	// Customiza o layout dos posts do feed
-	$('article').removeClass('col-10');
-	$('article').addClass('col-12');
-	$('article').addClass('card');
+
 	$('a.comments.btn').html('<span class="dashicons dashicons-admin-comments"></span>');
 	$('a.new-reaction.btn').html('<i class="dashicons dashicons-plus"></i>');
 	// $('article footer a').removeClass('btn');
