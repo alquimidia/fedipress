@@ -1,120 +1,138 @@
 $primary-color: #2e5bec;
-$dark-color: #3e396b;
+$dark-color: #1E2327;
 $border-color-light: #eee;
 $body-bg:#f7f8f9;
-
-div {
-	min-width: 0; // fixes overflowing <pre>
-}
 
 // Spectre: Variables and mixins
 @import "node_modules/spectre.css/src/variables";
 @import "node_modules/spectre.css/src/mixins";
-
-// Spectre: Reset and dependencies
-@import "node_modules/spectre.css/src/animations";
-@import "node_modules/spectre.css/src/normalize";
-@import "node_modules/spectre.css/src/base";
-
-// Spectre: Elements
-@import "node_modules/spectre.css/src/typography";
-@import "node_modules/spectre.css/src/asian";
-@import "node_modules/spectre.css/src/forms";
-@import "node_modules/spectre.css/src/buttons";
 
 // Spectre: Layout
 @import "node_modules/spectre.css/src/layout";
 @import "node_modules/spectre.css/src/navbar";
 @import "node_modules/spectre.css/src/off-canvas";
 
-// Spectre: Components
-@import "node_modules/spectre.css/src/accordions";
-@import "node_modules/spectre.css/src/cards";
-@import "node_modules/spectre.css/src/navs";
-@import "node_modules/spectre.css/src/chips";
-@import "node_modules/spectre.css/src/menus";
 
-@import "node_modules/spectre.css/src/autocomplete";
-@import "node_modules/spectre.css/src/utilities/loading";
-@import "node_modules/spectre.css/src/utilities/colors";
-@import "node_modules/spectre.css/src/utilities/divider";
-@import "node_modules/spectre.css/src/utilities/display";
-@import "node_modules/spectre.css/src/utilities/position";
-
-.friends-dropdown {
-	display: inline-block;
-	position: relative;
-
-	.menu {
-		animation: slide-down .15s ease 1;
-		display: none;
-		left: 0;
-		max-height: 50vh;
-		overflow-y: auto;
-		position: absolute;
-		top: 100%;
-	}
-
-	&.friends-dropdown-right {
-		.menu {
-			left: auto;
-			right: 0;
-		}
-	}
-
-	&.active .menu,
-	.friends-dropdown-toggle:focus+.menu,
-	.menu:hover {
-		display: block;
-	}
-
-	// Fix friends-dropdown-toggle border radius in button groups
-	.btn-group {
-		.friends-dropdown-toggle:nth-last-child(2) {
-			border-bottom-right-radius: $border-radius;
-			border-top-right-radius: $border-radius;
-		}
-	}
-}
 
 .off-canvas .off-canvas-content {
-	// margin-top: 32px;
-	padding-top: 1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
-@media (min-width: $off-canvas-breakpoint) {
-	.off-canvas .off-canvas-content {
-		padding-left: 2rem;
-		padding-right: 2rem;
-
-	}
-}
-
-.off-canvas .off-canvas-toggle {
-	top: 3rem;
-	left: 1rem;
-}
-
-.off-canvas .off-canvas-content header.navbar {
-	margin-bottom: 32px;
-}
-
-.off-canvas .off-canvas-content header.navbar.no-bottom-margin {
-	margin-bottom: 0;
+	margin-top: unset;
 }
 
 .off-canvas .off-canvas-sidebar {
-	// margin-top: 32px;
-	width: 12rem;
-	background: #f7f8f9;
+	margin-top: unset;
+}
+
+.friends-page {
+	background-color: $body-bg !important;
+	.friends-brand {
+		display: none;
+	}
+
+	#friends-sidebar .friends-nav {
+		top: 5px !important;
+		.subscription-count, .friend-count{
+			background: $primary-color;
+			color: white;
+			padding: 4px 6px 4px 6px;
+			font-size: 10px;
+			border-radius: 20px;
+		}
+	}
+
+	div.friends-widget details {
+		margin-bottom: 2em;
+	}
+
+	div.friends-widget h5 {
+		color: $primary-color;
+	}
+
+	.form-input, .btn.btn-primary{
+		border-radius: 10px;
+		margin-top: 10px;
+	}
+
+}
+// Aplica CSS da classe .card no elemento Article
+article {
+	width: 100% !important;
+	height: 100%;
+	box-shadow: none;
+	padding: 0;
+	border: 0;
+	padding: 1rem !important;
+
+	.card-body {
+		padding: 0;
+
+		ul,
+		ol {
+			margin-left: 1rem;
+		}
+
+		img,
+		video {
+			max-width: 100% !important;
+			height: auto;
+		}
+
+		.wp-block-image,
+		.wp-block-gallery {
+
+			&.alignfull,
+			&.alignwide {
+				margin: 0;
+			}
+
+			figcaption {
+				text-align: center;
+				font-size: .8rem;
+			}
+		}
+
+		p.note {
+			border-left: 4px solid #eee;
+			padding: 1rem;
+			margin-left: 1rem;
+			font-size: .8rem;
+			color: #666;
+			background-color: #f7f7f7;
+		}
+	}
+
+	border-bottom: 1px solid #eee;
+	padding: 0 0 1em 0;
+	margin: 0 0 1em 0;
+
+	@media (min-width: $off-canvas-breakpoint) {
+		& {
+			border: 0;
+			box-shadow: 0 .25rem 1rem rgba(48, 55, 66, .15);
+			border-bottom: 1px solid #87a6bc;
+			padding: 0 0 1em 0;
+			margin: 0 0 1em 0;
+
+			.card-body {
+				padding: 1rem;
+			}
+
+			.card-title {
+				padding-left: 1rem;
+			}
+
+		}
+	}
+}
+
+// Remove título do Feed
+#main-header #page-title{
+	display: none !important;
 }
 
 // Aplica cores conforme tema do dispositivo
 @media (prefers-color-scheme: dark) {
 	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content{
-		background: #1E2327 !important;
+		background: $dark-color !important;
 		color: white !important;
 		.friends-widget
 			a, h5{
@@ -146,710 +164,4 @@ div {
 	}
 
 }
-// Remove título do Feed
-#main-header #page-title{
-	display: none !important;
-}
 
-.off-canvas .off-canvas-content header.navbar #page-title {
-	margin-left: 3rem;
-}
-
-h2#page-title a.dashicons {
-	font-size: .8em;
-	margin-right: .5em;
-	vertical-align: baseline;
-}
-
-@media (min-width: $off-canvas-breakpoint) {
-	.off-canvas .off-canvas-content header.navbar #page-title {
-		margin-left: 0;
-	}
-}
-
-::backdrop {
-	background-color: rgba(0, 0, 0, 0.75);
-}
-
-.friends-page {
-	background-color: $body-bg !important;
-	color: $body-font-color;
-	overflow-wrap: break-word;
-
-	code,
-	pre {
-		overflow: auto;
-	}
-
-	min-height: 100vh;
-
-	a:visited {
-		color: $link-color-dark;
-	}
-
-	a.off-canvas-toggle:visited {
-		color: $link-color;
-	}
-
-	a,
-	a:visited,
-	a:hover,
-	a:focus,
-	a:active {
-		color: $link-color;
-	}
-
-	summary.accordion-header {
-		color: $link-color;
-		cursor: pointer;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-
-	.accordion[open] .accordion-body {
-		max-height: 100rem;
-	}
-
-	.nav-links div a,
-	.nav-links div a:hover {
-		@extend .btn, .btn-primary;
-	}
-
-	.menu {
-
-		a,
-		a:active,
-		a:visited {
-			color: #333;
-		}
-
-		.menu-item+.menu-item {
-			margin-top: 0;
-		}
-
-		.divider[data-content] {
-			margin: 0.8rem 0 0.4rem 0;
-		}
-
-		.menu-item.friends-dropdown {
-			margin-top: 0.2rem;
-			margin-bottom: 0.4rem;
-		}
-
-		.menu-item small.label-secondary {
-			display: none;
-		}
-
-		.menu-item:hover small.label-secondary {
-			display: inline-block;
-		}
-
-
-		.has-icon-left .ab-icon {
-			line-height: 1.2;
-			margin-right: .2em;
-
-			.dashicons.dashicons-plus {
-				color: #32c170;
-				font-size: .5em;
-				margin-left: -1.5em;
-				margin-top: -2.1em;
-			}
-		}
-	}
-
-	button,
-	input {
-		min-height: auto;
-	}
-
-	.d-none {
-		display: none;
-	}
-
-	dialog {
-		border: 0;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-	}
-
-
-	header.navbar section.navbar-section.author {
-		flex: 3;
-	}
-
-	summary.quick-status-panel-opener {
-		margin-bottom: 2em;
-		cursor: pointer;
-	}
-
-	article {
-		.card-body {
-
-			img,
-			video {
-				max-width: 100% !important;
-				height: auto;
-			}
-		}
-
-		&.format-status {
-			div.teaser {
-				display: none;
-			}
-
-			border-bottom: 1px solid $dark-color;
-			padding-bottom: 2em;
-			margin-bottom: 2em;
-
-			header {
-
-				div.overflow,
-				div.post-meta,
-				div.teaser {
-					margin-top: .4em;
-				}
-
-				div.overflow {
-					.btn {
-						margin-top: -.5em;
-					}
-				}
-			}
-		}
-	}
-
-	.card {
-		height: 100%;
-		box-shadow: none;
-		padding: 0;
-		border: 0;
-
-		.card-body {
-			padding: 0;
-
-			ul,
-			ol {
-				margin-left: 1rem;
-			}
-
-			img,
-			video {
-				max-width: 100% !important;
-				height: auto;
-			}
-
-			.wp-block-image,
-			.wp-block-gallery {
-
-				&.alignfull,
-				&.alignwide {
-					margin: 0;
-				}
-
-				figcaption {
-					text-align: center;
-					font-size: .8rem;
-				}
-			}
-
-			p.note {
-				border-left: 4px solid #eee;
-				padding: 1rem;
-				margin-left: 1rem;
-				font-size: .8rem;
-				color: #666;
-				background-color: #f7f7f7;
-			}
-		}
-
-		border-bottom: 1px solid #eee;
-		padding: 0 0 1em 0;
-		margin: 0 0 1em 0;
-
-		@media (min-width: $off-canvas-breakpoint) {
-			& {
-				border: 0;
-				box-shadow: 0 .25rem 1rem rgba(48, 55, 66, .15);
-				border-bottom: 1px solid #87a6bc;
-				padding: 0 0 1em 0;
-				margin: 0 0 1em 0;
-
-				.card-body {
-					padding: 1rem;
-				}
-
-				.card-title {
-					padding-left: 1rem;
-				}
-
-			}
-		}
-	}
-
-	.friends-brand {
-		position: fixed;
-		display: none;
-
-		.friends-logo {
-
-			a,
-			a:visited,
-			a:active {
-				color: $link-color;
-			}
-
-			h2 {
-				display: inline-block;
-				font-size: 1.2rem;
-				font-weight: 700;
-				line-height: 1.5rem;
-				margin-top: 1.5rem;
-				margin-bottom: 0;
-				margin-left: 1.5rem;
-				margin-right: .3rem;
-				text-transform: uppercase;
-
-			}
-
-			@media (min-width: 782px) {
-				& {
-					margin-top: 1rem;
-				}
-			}
-		}
-
-		.friends-sidebar-customize {
-			margin-left: 1.5rem;
-			color: #999;
-			font-size: .4rem;
-			line-height: .6rem;
-			display: block;
-		}
-	}
-
-	#friends-sidebar .friends-nav {
-		bottom: 1.5rem;
-		-webkit-overflow-scrolling: touch;
-		overflow-y: auto;
-		padding: .5rem 1.5rem;
-		position: fixed;
-		top: 5px !important;
-		width: 12rem;
-
-		.accordion-header {
-			padding: 0;
-		}
-
-		.subscription-count, .friend-count{
-			background: rgb(22.625, 72.6578947368, 233.875);
-			color: white;
-			padding: 4px 6px 4px 6px;
-			font-size: 10px;
-			border-radius: 20px;
-		}
-	}
-
-	#quick-post-panel {
-		display: none;
-		margin-bottom: 2em;
-
-		&.open {
-			display: block;
-		}
-
-		p.description {
-			font-color: $dark-color;
-			font-size: .6rem;
-		}
-
-		.activitypub_preview {
-			background-color: #f7f8f9;
-			padding: .5em;
-			margin-top: 1em;
-			margin-bottom: 1em;
-			max-height: 6em;
-			overflow-y: auto;
-
-			figcaption {
-				float: right;
-
-				a:any-link {
-					color: #999;
-				}
-			}
-		}
-	}
-
-	img.avatar {
-		border-radius: 100%;
-	}
-
-	div.friends-widget {
-		margin-bottom: 2em;
-	}
-
-	div.friends-widget details {
-		margin-bottom: 2em;
-	}
-
-	div.friends-main-widget h1 a {
-		color: #222;
-		text-decoration: none;
-	}
-
-	div.friends-widget h4 a {
-		color: #222;
-		text-decoration: none;
-	}
-
-	div.friends-widget a.open-requests {
-		font-size: 90%;
-		font-weight: normal;
-	}
-
-	div.friends-widget ul {
-		margin: .5em 0 1em 0;
-		padding: 0;
-	}
-
-	div.friends-widget h5 {
-		margin-bottom: .5em;
-		font-size: .7rem;
-		text-transform: uppercase;
-		font-weight: bold;
-		letter-spacing: 2px;
-		color: $primary-color;
-	}
-
-	section.posts {
-		.card {
-			header.entry-header {
-				display: flex;
-				font-size: 88%;
-				line-height: 1.4;
-				max-width: 100%;
-				margin: auto -0.4rem;
-				padding: .5rem;
-				padding-bottom: 1.5em;
-
-				div.avatar {
-					margin-right: .5em;
-				}
-
-				@media (min-width: $off-canvas-breakpoint) {
-					padding: .8rem;
-					padding-bottom: 1.5em;
-				}
-			}
-
-			h4.entry-title {
-				font-size: 130%;
-				line-height: 1.4;
-				margin: 0 0 1em 0;
-				text-align: left;
-
-				a {
-					text-decoration: none;
-
-					span.dashicons {
-						margin-top: 4px;
-						margin-left: 6px;
-						color: #32c170;
-					}
-				}
-
-				&:after {
-					display: none;
-				}
-			}
-		}
-
-		span.reading-time::before {
-			content: " | ";
-		}
-
-		article.status-trash {
-			opacity: .5;
-		}
-
-		&.all-collapsed article:not(.uncollapsed):not(:only-child),
-		article.collapsed {
-			div.card-body {
-				display: none;
-			}
-
-			header {
-				padding-left: 1rem;
-
-				div.avatar {
-					display: none;
-				}
-
-				padding-bottom: 0;
-
-				div.author {
-					display: inline;
-				}
-
-				div.permalink {
-					&::before {
-						content: " | ";
-					}
-
-					display: inline;
-				}
-			}
-
-			h4.card-title {
-				margin-bottom: 0;
-			}
-
-			&.format-status {
-				padding-bottom: 0;
-				margin-bottom: .5em;
-				width: 100%;
-
-				.overflow {
-					width: 6em;
-					margin-left: 1em;
-				}
-
-				div.teaser {
-					text-overflow: ellipsis;
-					width: calc(100% - 7em);
-					overflow: hidden;
-					white-space: nowrap;
-					display: inline-block;
-
-					@media (min-width: $off-canvas-breakpoint) {
-						width: calc(100% - 25em);
-					}
-				}
-
-				header {
-					padding-left: 0;
-					margin-bottom: 0;
-
-					div.post-meta {
-						max-width: 15em;
-						max-height: 1.5em;
-						overflow: hidden;
-						text-overflow: ellipsis;
-					}
-
-					div.avatar {
-						display: block;
-					}
-				}
-			}
-
-			footer.entry-meta {
-				display: none;
-			}
-		}
-
-		footer.entry-meta {
-			display: flex;
-			justify-content: flex-end;
-
-			a {
-				color: $link-color;
-
-				.dashicons {
-					vertical-align: middle;
-				}
-			}
-
-			.btn:hover {
-				color: $link-color;
-			}
-		}
-
-		footer.comments-content {
-			&.closed {
-				display: none;
-			}
-
-			.comment-list {
-				padding-left: 0;
-				list-style: none;
-			}
-
-			.comment-list>li {
-				margin-top: var(--global--spacing-vertical);
-				margin-bottom: var(--global--spacing-vertical);
-			}
-
-			.comment-list .children {
-				list-style: none;
-				margin-left: 0;
-				padding-left: 5px;
-				border-left: 3px solid #eee;
-			}
-
-			.comment-list .children>li {
-				margin-top: var(--global--spacing-vertical);
-				margin-bottom: var(--global--spacing-vertical);
-			}
-
-			@media only screen and (min-width: 482px) {
-
-				.comment-list .depth-2,
-				.comment-list .depth-3 {
-					padding-left: calc(4 * var(--global--spacing-horizontal));
-				}
-			}
-
-			.comment-reply-title small {
-				margin-left: 1em;
-			}
-
-			.comment-form-comment label {
-				display: block;
-			}
-		}
-	}
-
-	section.followers {
-		ul li {
-			list-style: none;
-			.already-following {
-				color: #ccc;
-			}
-			img {
-				vertical-align: middle;
-			}
-			.follower .ab-icon {
-				.dashicons.dashicons-plus,.dashicons.dashicons-yes {
-					color: #32c170;
-					font-size: .5em;
-					margin-left: -1.5em;
-					margin-top: -2.1em;
-				}
-				.dashicons.dashicons-no {
-					color: #dc1717;
-					font-size: .5em;
-					margin-left: -1.5em;
-					margin-top: -2.1em;
-				}
-			}
-
-			.form-icon.loading {
-				margin-left: 1em;
-			}
-			details summary span {
-				margin-left: .5em;
-				border-bottom: 1px solid #ccc;
-				span {
-					margin-left: 0;
-					border-bottom: 0;
-				}
-			}
-		}
-	}
-
-	ul.friend-posts img.avatar {
-		vertical-align: middle;
-		margin-right: .3em;
-	}
-
-	a.explanation-friends-auth-link,
-	a.friends-auth-link,
-	a.friends-auth-link:link,
-	a.friends-auth-link:active,
-	a.friends-auth-link,
-	a.friends-auth-link:link,
-	a.friends-auth-link:active {
-		color: #333;
-	}
-
-	a.friends-auth-link span.dashicons-admin-users {
-		display: inline;
-	}
-
-	a.friends-auth-link span.dashicons,
-	button.friends-auth-link span.dashicons {
-		color: #32c170;
-		margin-left: 6px;
-	}
-
-	a.explanation-friends-auth-link:hover,
-	a.friends-auth-link :hover,
-	a.friends-auth-link:hover,
-	a.friends-auth-link:hover span.dashicons,
-	button.friends-auth-link:hover span.dashicons {
-		color: #32c170;
-	}
-
-	a.explanation-friends-auth-link:hover,
-	a.friends-auth-link :hover,
-	a.friends-auth-link:hover {
-		text-decoration: underline;
-	}
-
-	a.explanation-friends-auth-link:hover span,
-	a.friends-auth-link :hover span,
-	a.friends-auth-link:hover span {
-		text-decoration: none;
-	}
-
-	.form-autocomplete .form-autocomplete-input .form-input {
-		width: auto;
-	}
-	.form-input, .btn.btn-primary{
-		border-radius: 10px;
-		margin-top: 10px;
-	}
-
-	.friends-reaction-picker button {
-		padding: .5rem;
-		margin: 0;
-		font-size: 18px;
-		background-color: #fff;
-		border: 0;
-		cursor: pointer;
-		z-index: 999999;
-	}
-
-	.friends-reaction-picker button:focus {
-		outline: none;
-	}
-
-	a.display-message.unread {
-		font-weight: bold;
-	}
-
-	.friend-message .conversation .messages {
-		max-height: 40em;
-		overflow: auto;
-
-		.wp-block-friends-message {
-			max-width: 80%;
-			margin: 1em;
-			border-bottom: 1px solid $border-color-light;
-		}
-	}
-
-	/* to support mastodon style tags */
-	.invisible {
-		font-size: 0;
-		line-height: 0;
-		display: inline-block;
-		width: 0;
-		height: 0;
-		position: absolute;
-
-		img,
-		svg {
-			margin: 0 !important;
-			border: 0 !important;
-			padding: 0 !important;
-			width: 0 !important;
-			height: 0 !important
-		}
-	}
-
-	.ellipsis::after {
-		content: "…"
-	}
-}
