@@ -142,11 +142,10 @@ article {
 				text-decoration: none;
 			}
 	}
-	#friends-sidebar .friends-nav {
-		.subscription-count, .friend-count{
-			background: white;
-			color: black;
-		}
+	.friends-page #friends-sidebar .friends-nav .subscription-count,
+	.friends-page #friends-sidebar .friends-nav .friend-count{
+		background: white;
+		color: black;
 	}
 	article{
 		border: unset !important;
@@ -178,6 +177,10 @@ article {
 	}
 	.col-10{
 		width: 100% !important;
+	}
+	.menu .menu-item > a:focus,
+	.menu .menu-item > a:hover{
+		background: unset !important;
 	}
 }
 

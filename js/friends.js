@@ -16,7 +16,7 @@
 	// Customiza menu Subscriptions
 	if ($("details summary h5 span").hasClass( "subscription-count" )) {
 		var subscriptioncount = $(".subscription-count").prop('outerHTML');
-		$(".subscription-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Seguidores '+subscriptioncount);
+		$(".subscription-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Seguindo '+subscriptioncount);
 	}
 	// Customiza menu de Friends
 	if ($("details summary h5 span").hasClass( "friend-count" )) {
