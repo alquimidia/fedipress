@@ -142,26 +142,42 @@ article {
 				text-decoration: none;
 			}
 	}
-
+	#friends-sidebar .friends-nav {
+		.subscription-count, .friend-count{
+			background: white;
+			color: black;
+		}
+	}
 	article{
 		border: unset !important;
 		background: #313443 !important;
 		color: white !important;
-		.friends-page .card{
-			border: unset !important;
-		}
-		header a, footer a{
-			color: white !important;
-		}
-		.btn, .friends-page .nav-links div a, .friends-page .nav-links div a:hover{
-			background: unset !important;
-			border: unset !important;
-			color: white;
-		}
-		.col-10{
-			width: 100% !important;
-		}
 	}
-
+	.card,
+	.card-body,
+	.card-body .only-friends{
+		background: #313443 !important;
+		border: unset !important;
+	}
+	.btn,
+	.friends-page .nav-links div a,
+	.friends-page .nav-links div a:hover{
+		background: unset !important;
+		border: unset !important;
+		color: white !important;
+	}
+	.friends-page a,
+	.friends-page a:visited,
+	.friends-page a:hover,
+	.friends-page a:focus,
+	.friends-page a:active,
+	header a,
+	footer a,
+	.card-title a {
+		color: white !important;
+	}
+	.col-10{
+		width: 100% !important;
+	}
 }
 

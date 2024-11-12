@@ -18,10 +18,15 @@
 		var subscriptioncount = $(".subscription-count").prop('outerHTML');
 		$(".subscription-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Seguidores '+subscriptioncount);
 	}
+	// Customiza menu de Friends
+	if ($("details summary h5 span").hasClass( "friend-count" )) {
+		var friendCount = $(".friend-count").prop("outerHTML");
+		$(".friend-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Amigos '+friendCount);
+	}
 	// Customiza menu de Friends Request
 	if ($("details summary h5 a").hasClass( "open-requests" )) {
-		var openRequests = $(".open-requests .friend-count").text();
-		$(".open-requests").parent().html('<span class="dashicons dashicons-admin-users"></span> Solicitações <span class="subscription-count">'+openRequests+'</span>');
+		var openRequests = $(".open-requests .friend-count").prop("outerHTML");
+		$(".open-requests").parent().html('<span class="dashicons dashicons-admin-users"></span> Solicitações '+openRequests);
 	}
 	$('.friends-widget').each(function(index, div) {
 		$('form').prev().remove();
