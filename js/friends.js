@@ -10,6 +10,7 @@
 
 	// Aplica classe em itens do formulário
 	$('input[name=title]').addClass('form-input');
+	$('input[name=status]').val('publish');
 	$('textarea').addClass('form-input');
 	$('button').addClass('btn btn-primary input-group-btn');
 	$('details').removeAttr('open');
@@ -33,9 +34,9 @@
 		$(".open-requests").parent().html('<span class="dashicons dashicons-admin-users"></span> Solicitações '+openRequests);
 	}
 	$('.friends-widget').each(function(index, div) {
-		$('form').prev().remove();
-		$('br').remove();
-		$('small').remove();
+		$('form.friends-post-inline').prev().remove();
+		$('form.friends-post-inline br').remove();
+		$('form.friends-post-inline small').remove();
 		$(div).find('button').each(function(index, button) {
 			var itemText = $(button).text();
 			if (itemText == 'Post to your friends') {
@@ -61,6 +62,14 @@
 				$(div).html('<h5><span class="dashicons dashicons-admin-comments"></span>'+itemHtml+'</h5>');
 			}
 		});
+		// Customiza formulário para adicionar amigos
+		$('form.form-horizontal').addClass('input-group input-inline form-autocomplete');
+		$('form.form-horizontal div.form-group:nth-of-type(2)').remove();
+		$('form.form-horizontal div.form-group').html('<div class="has-icon-right"><input class="form-input" type="text" tabindex="2" name="friend_url" ><i class="form-icon"></i></div>');
+		$('form.form-horizontal div.form-group').addClass('form-autocomplete-input form-input');
+		$('form.form-horizontal div.form-group').after('<button class="btn btn-primary input-group-btn"><span class="dashicons dashicons-search"></span></button>');
+		$('form.form-horizontal div.form-group').removeClass('form-group');
+		$('form.form-horizontal').removeClass('form-horizontal');
 	});
 
 	$('a.comments.btn').html('<span class="dashicons dashicons-admin-comments"></span>');

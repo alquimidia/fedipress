@@ -50,6 +50,9 @@ $body-bg:#f7f8f9;
 		border-radius: 10px;
 		margin-top: 10px;
 	}
+	.friends-sidebar-customize{
+		display: none !important;
+	}
 
 }
 // Aplica CSS da classe .card no elemento Article
@@ -160,7 +163,7 @@ article {
 	.btn,
 	.friends-page .nav-links div a,
 	.friends-page .nav-links div a:hover{
-		background: unset !important;
+		background: #313443 !important;
 		border: unset !important;
 		color: white !important;
 	}
@@ -180,6 +183,17 @@ article {
 	.menu .menu-item > a:focus,
 	.menu .menu-item > a:hover{
 		background: unset !important;
+	}
+}
+
+// Customiza campo de formulário para adicionar amigos
+.friends-widget form.input-group {
+	width: 100% !important;
+	.form-input{
+		border-top-left-radius: 10px !important;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+		border-bottom-left-radius: 10px !important;
 	}
 }
 
