@@ -24,12 +24,11 @@ $body-bg:#f7f8f9;
 
 .friends-page {
 	background-color: $body-bg !important;
-	.friends-brand {
-		display: none;
+	.friends-brand .friends-logo h2{
+		text-transform: unset !important;
 	}
 
 	#friends-sidebar .friends-nav {
-		top: 5px !important;
 		.subscription-count, .friend-count{
 			background: $primary-color;
 			color: white;
@@ -170,9 +169,9 @@ article {
 	.friends-page a:hover,
 	.friends-page a:focus,
 	.friends-page a:active,
-	header a,
-	footer a,
-	.card-title a {
+	.friends-page header a,
+	.friends-page footer a,
+	.friends-page .card-title a {
 		color: white !important;
 	}
 	.col-10{

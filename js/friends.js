@@ -8,22 +8,26 @@
 
 	wp = wp || { ajax: { send() {}, post() {} } };
 
-	// Customiza layout dos ítens da barra lateral
+	// Aplica classe em itens do formulário
 	$('input[name=title]').addClass('form-input');
 	$('textarea').addClass('form-input');
 	$('button').addClass('btn btn-primary input-group-btn');
 	$('details').removeAttr('open');
+
+	// Substitui nome da logo
+	$('.friends-brand a.friends-logo').html('<h2>Fedipress</h2>');
+
 	// Customiza menu Subscriptions
 	if ($("details summary h5 span").hasClass( "subscription-count" )) {
 		var subscriptioncount = $(".subscription-count").prop('outerHTML');
 		$(".subscription-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Seguindo '+subscriptioncount);
 	}
-	// Customiza menu de Friends
+	// Customiza menu Friends
 	if ($("details summary h5 span").hasClass( "friend-count" )) {
 		var friendCount = $(".friend-count").prop("outerHTML");
 		$(".friend-count").parent().html('<span class="dashicons dashicons-admin-users"></span> Amigos '+friendCount);
 	}
-	// Customiza menu de Friends Request
+	// Customiza menu Friends Request
 	if ($("details summary h5 a").hasClass( "open-requests" )) {
 		var openRequests = $(".open-requests .friend-count").prop("outerHTML");
 		$(".open-requests").parent().html('<span class="dashicons dashicons-admin-users"></span> Solicitações '+openRequests);
@@ -45,6 +49,9 @@
 			if (itemText == 'Recent Friends') {
 				$(h5).html('<span class="dashicons dashicons-admin-users"></span> Amigos recentes');
 			}
+			if(itemText == 'Filter'){
+				$(h5).html('<span class="dashicons dashicons-filter"></span> Filtro');
+			}
 		});
 		// Customiza menu Refresh
 		$(div).find('a').each(function(index, a) {
@@ -56,11 +63,8 @@
 		});
 	});
 
-	$('.friends-widget:nth-of-type(4)').after('<div class="friends-widget"><h5><a href="/friends/reaction2b50"><span class="dashicons dashicons-star-filled"></span> Favoritos</a></h5></div>');
-
-
 	$('a.comments.btn').html('<span class="dashicons dashicons-admin-comments"></span>');
 	$('a.new-reaction.btn').html('<i class="dashicons dashicons-plus"></i>');
-	// $('article footer a').removeClass('btn');
+
 
 } )( jQuery, window.wp, window.friends );
