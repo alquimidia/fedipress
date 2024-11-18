@@ -65,7 +65,7 @@
 		// Customiza formulário para adicionar amigos
 		$('form.form-horizontal').addClass('input-group input-inline form-autocomplete');
 		$('form.form-horizontal div.form-group:nth-of-type(2)').remove();
-		$('form.form-horizontal div.form-group').html('<div class="has-icon-right"><input class="form-input" type="text" tabindex="2" name="friend_url" ><i class="form-icon"></i></div>');
+		$('form.form-horizontal div.form-group').html('<div class="has-icon-right"><input class="form-input" type="text" tabindex="2" name="friend_url" placeholder="@login@url" ><i class="form-icon"></i></div>');
 		$('form.form-horizontal div.form-group').addClass('form-autocomplete-input form-input');
 		$('form.form-horizontal div.form-group').after('<button class="btn btn-primary input-group-btn"><span class="dashicons dashicons-search"></span></button>');
 		$('form.form-horizontal div.form-group').removeClass('form-group');

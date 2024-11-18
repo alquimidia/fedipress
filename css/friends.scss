@@ -14,18 +14,35 @@ $body-bg:#f7f8f9;
 
 
 
-.off-canvas .off-canvas-content {
-	margin-top: unset;
-}
-
-.off-canvas .off-canvas-sidebar {
-	margin-top: unset;
-}
-
 .friends-page {
 	background-color: $body-bg !important;
+
+	#main-header #page-title{
+		display: none !important;
+	}
+	.off-canvas .off-canvas-content {
+		margin-top: unset;
+	}
+
+	.off-canvas .off-canvas-sidebar {
+		margin-top: unset;
+	}
+
+	.off-canvas-content header.navbar{
+		display: none !important;
+	}
+
 	.friends-brand .friends-logo h2{
 		text-transform: unset !important;
+	}
+
+	::placeholder {
+		color: rgb(139, 139, 139) !important;
+		opacity: 1; /* Firefox */
+	}
+
+	::-ms-input-placeholder { /* Edge 12 -18 */
+		color: rgb(139, 139, 139) !important;
 	}
 
 	#friends-sidebar .friends-nav {
@@ -55,6 +72,7 @@ $body-bg:#f7f8f9;
 	}
 
 }
+
 // Aplica CSS da classe .card no elemento Article
 article {
 	width: 100% !important;
@@ -126,11 +144,6 @@ article {
 	}
 }
 
-// Remove título do Feed
-#main-header #page-title{
-	display: none !important;
-}
-
 // Aplica cores conforme tema do dispositivo
 @media (prefers-color-scheme: dark) {
 	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content{
@@ -196,4 +209,3 @@ article {
 		border-bottom-left-radius: 10px !important;
 	}
 }
-
