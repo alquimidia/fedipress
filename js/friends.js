@@ -76,7 +76,7 @@
 	$('a.new-reaction.btn').html('<i class="dashicons dashicons-plus"></i>');
 
 	// Insere item em menu da barra lateral para voltar para dshboard do WP
-	$('.friends-widget:last-of-type').after('<div class="friends-widget"><h5><a href="wpadmin"><i class="dashicons dashicons-wordpress"></i> Painel</a></h5></div>');
+	$('.friends-widget:last-of-type').after('<div class="friends-widget"><h5><a href="/wp-admin"><i class="dashicons dashicons-wordpress"></i> Painel</a></h5></div>');
 
 
 } )( jQuery, window.wp, window.friends );
