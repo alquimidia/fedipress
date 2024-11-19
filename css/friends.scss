@@ -44,9 +44,47 @@ $body-bg:#f7f8f9;
 	::-ms-input-placeholder { /* Edge 12 -18 */
 		color: rgb(139, 139, 139) !important;
 	}
-
-	#friends-sidebar .friends-nav {
-		.subscription-count, .friend-count{
+	.nav-links div a,
+	.nav-links div a:hover{
+		background: unset !important;
+		border: unset !important;
+	}
+	.btn,
+	.btn-link,
+	.btn-primary,
+	.input-group-btn{
+		border: unset !important;
+		background: unset !important;
+	}
+	a:hover,
+	a:focus {
+		font-weight: bold !important;
+		background: unset !important;
+	}
+	// Altera cor de sidebar
+	#friends-sidebar{
+		background: $dark-color !important;
+		color: white !important;
+		a, h5{
+			color: white !important;
+		}
+		a:hover,
+		a:focus{
+			text-decoration: none;
+			font-weight:bolder !important;
+		}
+		.btn{
+			background: #313443 !important;
+		}
+		.menu .menu-item {
+			a:focus,
+			a:hover{
+				background: unset !important;
+				font-weight: bold;
+			}
+		}
+		.subscription-count,
+		.friend-count{
 			background: $primary-color;
 			color: white;
 			padding: 4px 6px 4px 6px;
@@ -63,149 +101,147 @@ $body-bg:#f7f8f9;
 		color: $primary-color;
 	}
 
+	// Customiza campo de formulário para adicionar amigos
+	.friends-widget form.input-group {
+		width: 100% !important;
+		.form-input{
+			border-top-left-radius: 10px !important;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+			border-bottom-left-radius: 10px !important;
+		}
+	}
+
 	.form-input, .btn.btn-primary{
 		border-radius: 10px;
 		margin-top: 10px;
 	}
+
 	.friends-sidebar-customize{
 		display: none !important;
 	}
 
-}
-
-// Aplica CSS da classe .card no elemento Article
-article {
-	width: 100% !important;
-	height: 100%;
-	box-shadow: none;
-	padding: 0;
-	border: 0;
-	padding: 1rem !important;
-
-	.card-body {
+	// Aplica CSS da classe .card no elemento Article
+	article {
+		width: 100% !important;
+		height: 100%;
+		box-shadow: none;
 		padding: 0;
+		border: 0;
+		padding: 1rem !important;
 
-		ul,
-		ol {
-			margin-left: 1rem;
-		}
+		.card-body {
+			padding: 0;
 
-		img,
-		video {
-			max-width: 100% !important;
-			height: auto;
-		}
-
-		.wp-block-image,
-		.wp-block-gallery {
-
-			&.alignfull,
-			&.alignwide {
-				margin: 0;
+			ul,
+			ol {
+				margin-left: 1rem;
 			}
 
-			figcaption {
-				text-align: center;
-				font-size: .8rem;
+			img,
+			video {
+				max-width: 100% !important;
+				height: auto;
 			}
-		}
 
-		p.note {
-			border-left: 4px solid #eee;
-			padding: 1rem;
-			margin-left: 1rem;
-			font-size: .8rem;
-			color: #666;
-			background-color: #f7f7f7;
-		}
-	}
+			.wp-block-image,
+			.wp-block-gallery {
 
-	border-bottom: 1px solid #eee;
-	padding: 0 0 1em 0;
-	margin: 0 0 1em 0;
+				&.alignfull,
+				&.alignwide {
+					margin: 0;
+				}
 
-	@media (min-width: $off-canvas-breakpoint) {
-		& {
-			border: 0;
-			box-shadow: 0 .25rem 1rem rgba(48, 55, 66, .15);
-			border-bottom: 1px solid #87a6bc;
-			padding: 0 0 1em 0;
-			margin: 0 0 1em 0;
+				figcaption {
+					text-align: center;
+					font-size: .8rem;
+				}
+			}
 
-			.card-body {
+			p.note {
+				border-left: 4px solid #eee;
 				padding: 1rem;
+				margin-left: 1rem;
+				font-size: .8rem;
+				color: #666;
+				background-color: #f7f7f7;
 			}
+		}
 
-			.card-title {
-				padding-left: 1rem;
+		border-bottom: 1px solid #eee;
+		padding: 0 0 1em 0;
+		margin: 0 0 1em 0;
+
+		@media (min-width: $off-canvas-breakpoint) {
+			& {
+				border: 0;
+				box-shadow: 0 .25rem 1rem rgba(48, 55, 66, .15);
+				border-bottom: 1px solid #87a6bc;
+				padding: 0 0 1em 0;
+				margin: 0 0 1em 0;
+
+				.card-body {
+					padding: 1rem;
+				}
+
+				.card-title {
+					padding-left: 1rem;
+				}
+
 			}
-
 		}
 	}
-}
 
-// Aplica cores conforme tema do dispositivo
-@media (prefers-color-scheme: dark) {
-	.friends-page, .off-canvas .off-canvas-sidebar, .off-canvas-content{
+	// Aplica cores conforme tema do dispositivo
+	@media (prefers-color-scheme: dark) {
 		background: $dark-color !important;
 		color: white !important;
-		.friends-widget
-			a, h5{
-				color: white !important;
+		a,
+		a:visited,
+		a:active,
+		header a,
+		footer a,
+		.card-title a {
+			color: white !important;
+		}
+		.col-10{
+			width: 100% !important;
+		}
+		#friends-sidebar {
+			.friends-nav {
+				.subscription-count,
+				.friend-count{
+					background: white;
+					color: black;
+				}
 			}
-			a:hover{
-				text-decoration: none;
+			.btn{
+				background: #313443 !important;
 			}
-	}
-	.friends-page #friends-sidebar .friends-nav .subscription-count,
-	.friends-page #friends-sidebar .friends-nav .friend-count{
-		background: white;
-		color: black;
-	}
-	article{
-		border: unset !important;
-		background: #313443 !important;
-		color: white !important;
-	}
-	.card,
-	.card-body,
-	.card-body .only-friends{
-		background: #313443 !important;
-		border: unset !important;
-	}
-	.btn,
-	.friends-page .nav-links div a,
-	.friends-page .nav-links div a:hover{
-		background: #313443 !important;
-		border: unset !important;
-		color: white !important;
-	}
-	.friends-page a,
-	.friends-page a:visited,
-	.friends-page a:hover,
-	.friends-page a:focus,
-	.friends-page a:active,
-	.friends-page header a,
-	.friends-page footer a,
-	.friends-page .card-title a {
-		color: white !important;
-	}
-	.col-10{
-		width: 100% !important;
-	}
-	.menu .menu-item > a:focus,
-	.menu .menu-item > a:hover{
-		background: unset !important;
-	}
-}
-
-// Customiza campo de formulário para adicionar amigos
-.friends-widget form.input-group {
-	width: 100% !important;
-	.form-input{
-		border-top-left-radius: 10px !important;
-		border-top-right-radius: 0px;
-		border-bottom-right-radius: 0px;
-		border-bottom-left-radius: 10px !important;
+		}
+		.off-canvas .off-canvas-sidebar,
+		.off-canvas-content,
+		.menu {
+			background: $dark-color !important;
+			color: white !important;
+			.friends-widget
+				a, h5{
+					color: white !important;
+				}
+				a:hover{
+					text-decoration: none;
+				}
+		}
+		article{
+			border: unset !important;
+			background: #313443 !important;
+			color: white !important;
+		}
+		.card,
+		.card-body,
+		.card-body .only-friends{
+			background: #313443 !important;
+			border: unset !important;
+		}
 	}
 }
