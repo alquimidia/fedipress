@@ -1047,9 +1047,52 @@ h2#page-title a.dashicons {
 			border: unset !important;
 		}
 	}
-	// Alina a data do post à direita
-	.status__relative-time{
-		float: right !important;
+	.status__info {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		font-size: 15px;
+		gap: 10px;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		.status__display-name {
+			align-items: center;
+			display: flex;
+			font-size: 15px;
+			gap: 10px;
+			line-height: 22px;
+			max-width: 100%;
+			overflow: hidden;
+		}
+		.status__display-name {
+			.display-name bdi {
+				overflow: hidden;
+			text-overflow: ellipsis;
+			}
+			.display-name__account {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+	}
+	.status__relative-time {
+		color: #606984;
+		display: block;
+		flex: 0 0 auto;
+		font-size: 15px;
+		height: 40px;
+		line-height: 22px;
+		order: 2;
+	}
+	.account__display-name,
+	.detailed-status__application,
+	.detailed-status__datetime,
+	.detailed-status__display-name,
+	.status__display-name,
+	.status__relative-time {
+		text-decoration: none;
 	}
 }
 

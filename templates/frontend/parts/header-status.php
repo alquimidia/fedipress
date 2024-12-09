@@ -30,23 +30,15 @@ $author_name = $args['friend_user']->display_name;
 $override_author_name = apply_filters( 'friends_override_author_name', '', $author_name, get_the_id() );
 $avatar = apply_filters( 'friends_author_avatar_url', $avatar, $friend_user, get_the_id() );?>
 
-<div class="status__info">
-	<span class="display-name">
-		<bdi>
+<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
+	<span class="dashicons dashicons-controls-repeat"></span>
+	<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong> reboost
+<?php endif; ?>
 
-			<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
-				<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong>
-				<br><br>
-				– <?php echo esc_html( $override_author_name ); ?>
-			<?php else : ?>
-			<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong>
-			<?php endif ?>
-		</bdi>
-	</span>
+<div class="status__info">
 	<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="status__relative-time" target="_blank" rel="noopener noreferrer">
 		<time datetime="<?php echo esc_attr( date( 'r', get_post_time( 'U', true ) ) ); ?>" title="<?php echo esc_attr( get_post_time() ); ?>"><?php echo esc_html( human_time_diff( get_post_time( 'U', true ) ) ); ?></time>
 	</a>
-
 	<a href="<?php echo esc_attr( $friend_user->get_local_friends_page_url() . get_the_ID() . '/' ); ?>" title="<?php echo esc_html( $friend_user->display_name ); ?>" class="status__display-name" target="_blank" rel="noopener noreferrer">
 		<div class="status__avatar">
 			<div class="account__avatar" style="width: 46px; height: 46px;">
@@ -57,7 +49,17 @@ $avatar = apply_filters( 'friends_author_avatar_url', $avatar, $friend_user, get
 				<?php endif; ?>
 			</div>
 		</div>
-
+		<span class="display-name">
+			<bdi>
+				<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
+					<?php echo esc_html( $override_author_name ); ?>
+				<?php else : ?>
+					<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong>
+					<span class="display-name__account">
+						<?php echo esc_html( $friend_user->user_login ); ?>
+					</span>
+				<?php endif; ?>
+			</bdi>
+		</span>
 	</a>
-
 </div>
