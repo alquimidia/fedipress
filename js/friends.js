@@ -9,7 +9,10 @@
 	wp = wp || { ajax: { send() {}, post() {} } };
 
 	// Substitui nome da logo
-	$('.friends-brand a.friends-logo').html('<h2>Fedipress</h2>');
+	$('.friends-brand a.friends-logo').html('<h2>Friends</h2>by FediPress');
+
+	// Remove divs friends message em sidebar
+	$('.wp-block-friends-message').parent().css('display','none')
 
 	// Customiza menu Subscriptions
 	if ($("details summary h5 span").hasClass( "subscription-count" )) {
@@ -42,17 +45,6 @@
 			var itemText = $(h5).text();
 			if (itemText == 'Recent Friends') {
 				$(h5).html('<span class="dashicons dashicons-admin-users"></span> Amigos recentes');
-			}
-			if(itemText == 'Filter'){
-				$(h5).html('<span class="dashicons dashicons-filter"></span> Filtro');
-			}
-		});
-		// Customiza menu Refresh
-		$(div).find('a').each(function(index, a) {
-			var itemText = $(a).text();
-			if (itemText == 'Refresh') {
-				var itemHtml = $(div).html();
-				$(div).html('<h5><span class="dashicons dashicons-admin-comments"></span>'+itemHtml+'</h5>');
 			}
 		});
 		// Customiza formulário para adicionar amigos
