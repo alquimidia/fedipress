@@ -140,3 +140,4 @@ $avatar = apply_filters( 'friends_author_avatar_url', $avatar, $friend_user, get
 
 	</div>
 </header>
+
