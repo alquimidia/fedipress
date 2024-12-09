@@ -28,36 +28,115 @@ $author_name = $args['friend_user']->display_name;
  * ```
  */
 $override_author_name = apply_filters( 'friends_override_author_name', '', $author_name, get_the_id() );
+
+/**
+ * Allows modifying the avatar for a post.
+ *
+ * @param string $avatar The avatar.
+ * @param string $friend_user The friend user if any.
+ * @param int $post_id The post ID.
+ *
+ * Example:
+ * ```php
+ * add_filter( 'friends_author_avatar_url', function( $avatar, $friend_user, $post_id ) {
+ *     return get_avatar_url( 'mystery-man' );
+ * }, 10, 3 );
+ * ```
+ */
 $avatar = apply_filters( 'friends_author_avatar_url', $avatar, $friend_user, get_the_id() );?>
-
-<div class="status__info">
-	<span class="display-name">
-		<bdi>
-
-			<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
-				<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong>
-				<br><br>
-				– <?php echo esc_html( $override_author_name ); ?>
+<header class="entry-header card-header columns">
+	<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
+		<div class="col-12">
+			<a href="<?php echo esc_attr( $friend_user->get_local_friends_page_url() ); ?>">
+				<span class="dashicons dashicons-controls-repeat"></span>
+				<strong><?php echo esc_html( $friend_user->display_name ); ?></strong>
+			</a>
+			reboost
+		</div>
+	<?php endif; ?>
+	<div class="avatar col-auto mr-2">
+		<?php if ( ! $avatar && in_array( get_post_type(), apply_filters( 'friends_frontend_post_types', array() ), true ) ) : ?>
+			<a href="<?php echo esc_attr( $friend_user->get_local_friends_page_url() ); ?>" class="author-avatar">
+				<?php echo get_avatar( $args['friend_user']->user_login, 36 ); ?>
+			</a>
+		<?php else : ?>
+			<a href="<?php echo esc_url( get_the_author_meta( 'url' ) ); ?>" class="author-avatar">
+				<img src="<?php echo esc_url( $avatar ? $avatar : get_avatar_url( get_the_author_meta( 'ID' ) ) ); ?>" width="36" height="36" class="avatar" />
+			</a>
+		<?php endif; ?>
+	</div>
+	<div class="post-meta">
+		<div class="author">
+			<?php if ( in_array( get_post_type(), apply_filters( 'friends_frontend_post_types', array() ), true ) ) : ?>
+					<?php if ( $override_author_name && trim( str_replace( $override_author_name, '', $author_name ) ) === $author_name ) : ?>
+						<?php echo esc_html( $override_author_name ); ?>
+					<?php else : ?>
+						<a href="<?php echo esc_attr( $friend_user->get_local_friends_page_url() ); ?>">
+							<strong><?php echo esc_html( $friend_user->display_name ); ?></strong>
+						</a>
+					<?php endif; ?>
 			<?php else : ?>
-			<strong class="display-name__html"><?php echo esc_html( $friend_user->display_name ); ?></strong>
-			<?php endif ?>
-		</bdi>
-	</span>
-	<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="status__relative-time" target="_blank" rel="noopener noreferrer">
-		<time datetime="<?php echo esc_attr( date( 'r', get_post_time( 'U', true ) ) ); ?>" title="<?php echo esc_attr( get_post_time() ); ?>"><?php echo esc_html( human_time_diff( get_post_time( 'U', true ) ) ); ?></time>
-	</a>
+				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
+					<strong><?php the_author(); ?></strong>
+				</a>
+			<?php endif; ?>
+		</div>
+		<div class="permalink">
+		<?php
+		echo wp_kses(
+			sprintf(
+				// translators: %1$s is a date or relative time, %2$s is a site name or domain.
+				_x( '%1$s on %2$s', 'at-date-on-post', 'friends' ),
+				'<a href="' . esc_attr( $friend_user->get_local_friends_page_url() . get_the_ID() . '/' ) . '" title="' . get_the_time( 'r' ) . '">' .
+				/* translators: %s is a time span */ sprintf( __( '%s ago' ), human_time_diff( get_post_time( 'U', true ) ) ) . // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
+				'</a>',
+				'<a href="' . esc_url( get_the_permalink() ) . '" rel="noopener noreferrer" target="_blank">' . esc_html( wp_parse_url( get_the_permalink(), PHP_URL_HOST ) ) . '</a>'
+			),
+			array(
+				'a' => array(
+					'href'   => array(),
+					'rel'    => array(),
+					'target' => array(),
+					'title'  => array(),
+				),
+			)
+		);
 
-	<a href="<?php echo esc_attr( $friend_user->get_local_friends_page_url() . get_the_ID() . '/' ); ?>" title="<?php echo esc_html( $friend_user->display_name ); ?>" class="status__display-name" target="_blank" rel="noopener noreferrer">
-		<div class="status__avatar">
-			<div class="account__avatar" style="width: 46px; height: 46px;">
-				<?php if ( ! $avatar && in_array( get_post_type(), apply_filters( 'friends_frontend_post_types', array() ), true ) ) : ?>
-					<?php echo get_avatar( $args['friend_user']->user_login, 46 ); ?>
-				<?php else : ?>
-					<img src="<?php echo esc_url( $avatar ? $avatar : get_avatar_url( get_the_author_meta( 'ID' ) ) ); ?>" width="46" height="46" class="avatar" />
-				<?php endif; ?>
-			</div>
+		if ( isset( $args['read_time'] ) ) {
+			echo ' <span class="reading-time" title="', esc_html__( 'Estimated reading time', 'friends' ), '">', esc_html(
+				sprintf(
+					// translators: %s is a timeframe, e.g. < 1 min or 2min.
+					__( '%s read', 'friends' ),
+					$args['read_time']
+				)
+			), '</span>';
+		}
+		?>
+		</div>
+	</div>
+	<div class="teaser col-ml-auto">
+		<?php echo wp_kses( str_replace( '/p>', '/p> ', preg_replace( '#<span class="invisible">.*?</span>#', '', get_the_content() ) ), array( 'a' => array( 'href' => array() ) ) ); ?>
+	</div>
+	<div class="overflow col-ml-auto">
+		<a class="btn btn-link collapse-post" tabindex="0" title="<?php esc_html_e( 'Double or meta/shift/cmd click to toggle all', 'friends' ); ?>">
+			<i class="dashicons dashicons-fullscreen-exit-alt"></i>
+		</a>
+
+		<div class="friends-dropdown friends-dropdown-right">
+			<a class="btn btn-link friends-dropdown-toggle" tabindex="0">
+				<i class="dashicons dashicons-menu-alt2"></i>
+			</a>
+			<ul class="menu" style="min-width: <?php echo esc_attr( intval( _x( '250', 'dropdown-menu-width', 'friends' ) ) ); ?>px">
+				<li class="menu-item"><a href="<?php echo esc_url( add_query_arg( 'in_reply_to', get_permalink() ) ); ?>" class="quick-reply" data-url="<?php echo esc_attr( get_permalink() ); ?>"><?php esc_html_e( 'Reply', 'friends' ); ?></a></li>
+				<?php
+				Friends\Friends::template_loader()->get_template_part(
+					'frontend/parts/header-menu',
+					null,
+					$args
+				);
+				?>
+			</ul>
 		</div>
 
-	</a>
-
-</div>
+	</div>
+</header>
