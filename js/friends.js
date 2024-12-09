@@ -8,13 +8,6 @@
 
 	wp = wp || { ajax: { send() {}, post() {} } };
 
-	// Aplica classe em itens do formulário
-	$('input[name=title]').addClass('form-input');
-	$('input[name=status]').val('publish');
-	$('textarea').addClass('form-input');
-	$('button').addClass('btn btn-primary input-group-btn');
-	$('details').removeAttr('open');
-
 	// Substitui nome da logo
 	$('.friends-brand a.friends-logo').html('<h2>Fedipress</h2>');
 
