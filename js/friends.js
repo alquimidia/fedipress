@@ -9,7 +9,7 @@
 	wp = wp || { ajax: { send() {}, post() {} } };
 
 	// Substitui nome da logo
-	$('.friends-brand a.friends-logo').html('<h2>Friends</h2>by FediPress');
+	$('.friends-brand a.friends-logo').html('<h2>Fedipress</h2>');
 
 	// Remove divs friends message em sidebar
 	$('.wp-block-friends-message').parent().css('display','none')
