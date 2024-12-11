@@ -8,12 +8,6 @@
 
 	wp = wp || { ajax: { send() {}, post() {} } };
 
-	// Substitui nome da logo
-	$('.friends-brand a.friends-logo').html('<h2>Fedipress</h2>');
-
-	// Remove divs friends message em sidebar
-	$('.wp-block-friends-message').parent().css('display','none')
-
 	// Customiza menu Subscriptions
 	if ($("details summary h5 span").hasClass( "subscription-count" )) {
 		var subscriptioncount = $(".subscription-count").prop('outerHTML');

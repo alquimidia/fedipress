@@ -86,14 +86,6 @@ div {
 	padding-right: 1rem;
 }
 
-@media (min-width: $off-canvas-breakpoint) {
-	.off-canvas .off-canvas-content {
-		padding-left: 2rem;
-		padding-right: 2rem;
-
-	}
-}
-
 .off-canvas .off-canvas-toggle {
 	top: 3rem;
 	left: 1rem;
@@ -356,7 +348,6 @@ h2#page-title a.dashicons {
 	}
 
 	.friends-brand {
-		position: fixed;
 
 		.friends-logo {
 
@@ -371,9 +362,9 @@ h2#page-title a.dashicons {
 				font-size: 1.2rem;
 				font-weight: 700;
 				line-height: 1.5rem;
-				margin-top: 1.5rem;
+				margin-top: 0.5rem;
 				margin-bottom: 0;
-				margin-left: 1.5rem;
+				margin-left: 0.5rem;
 				margin-right: .3rem;
 				text-transform: uppercase;
 
@@ -400,8 +391,6 @@ h2#page-title a.dashicons {
 		-webkit-overflow-scrolling: touch;
 		overflow-y: auto;
 		padding: .5rem;
-		position: fixed;
-		top: 10% !important;
 		width: 12rem;
 
 		.accordion-header {
