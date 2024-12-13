@@ -8,8 +8,6 @@
 ?>
 
 <?php 
-xdebug_break();
-
 $query = Friends\User_Query::all_associated_users();
 $friends = $query->get_results();
 

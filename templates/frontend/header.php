@@ -63,7 +63,7 @@ add_filter(
 			</div>
 			<div class="friends-widget">
 				<h5>
-					<a class="followers" href="<?php echo esc_url( home_url( '/friends/followING/' ) ); ?>">
+					<a class="followers" href="<?php echo esc_url( home_url( '/friends/following/' ) ); ?>">
 						<span class="dashicons dashicons-admin-users"></span>
 						<?php echo esc_attr_e( "FollowING", 'friends' ); ?>
 					</a>
@@ -71,7 +71,7 @@ add_filter(
 			</div>
 			<div class="friends-widget">
 				<h5>
-					<a href="http://localhost/friends/reaction2b50/">
+					<a href="<?php echo esc_url( home_url( '/friends/reaction2b50/' ) ); ?>
 						<i class="dashicons dashicons-star-filled"></i> <?php echo esc_attr_e( "Starred", 'friends' ); ?>
 					</a>
 				</h5>
