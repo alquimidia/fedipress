@@ -51,7 +51,7 @@ $avatar = apply_filters( 'friends_author_avatar_url', $avatar, $friend_user, get
 				<span class="dashicons dashicons-controls-repeat"></span>
 				<strong><?php echo esc_html( $friend_user->display_name ); ?></strong>
 			</a>
-			reboost
+			repost
 		</div>
 	<?php endif; ?>
 	<div class="avatar col-auto mr-2">
