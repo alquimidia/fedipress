@@ -36,16 +36,70 @@ add_filter(
 			<a class="friends-sidebar-customize" href="<?php echo esc_url( add_query_arg( 'url', home_url( '/friends/' ), admin_url( 'customize.php?autofocus[section]=sidebar-widgets-friends-sidebar' ) ) ); ?>"><?php esc_html_e( 'customize sidebar', 'friends' ); ?></a>
 		</div>
 		<div class="friends-nav accordion-container">
-			<form method="post" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" class="friends-post-inline" style="text-align: right;">
-				<?php wp_nonce_field( 'friends_publish' ); ?>
-				<input type="hidden" name="action" value="friends_publish" />
-				<input class="form-input" type="text" name="title" value=""  />
-				<textarea class="form-input"  name="content" rows="5" cols="70"></textarea><br />
-				<button class="btn btn-primary input-group-btn"><?php _e( 'Publicar', 'friends' ); ?></button>
-			</form>
-			<?php dynamic_sidebar( 'friends-sidebar' ); ?>
+			<div class="friends-widget">
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" class="friends-post-inline" style="text-align: right;">
+					<?php wp_nonce_field( 'friends_publish' ); ?>
+					<input type="hidden" name="action" value="friends_publish" />
+					<input class="form-input" type="text" name="title" value=""  />
+					<textarea class="form-input"  name="content" rows="5" cols="70"></textarea>
+					<button class="btn btn-primary input-group-btn"><?php _e( 'Publicar', 'friends' ); ?></button>
+				</form>
+			</div>
+			<div class="friends-widget">
+				<h5>
+					<span class="dashicons dashicons-update"></span>
+					<a href="<?php echo esc_url( home_url( '/friends/?refresh' ) ); ?>">
+						<?php echo esc_html__( 'Refresh Feed', 'friends' );?>
+					</a>
+				</h5>
+			</div>
+			<div class="friends-widget">
+				<h5>
+					<a class="followers" href="<?php echo esc_url( home_url( '/friends/followers/' ) ); ?>">
+						<span class="dashicons dashicons-admin-users"></span>
+						<?php echo esc_attr_e( "Followers", 'friends' ); ?>
+					</a>
+				</h5>
+			</div>
+			<div class="friends-widget">
+				<h5>
+					<a class="followers" href="<?php echo esc_url( home_url( '/friends/followING/' ) ); ?>">
+						<span class="dashicons dashicons-admin-users"></span>
+						<?php echo esc_attr_e( "FollowING", 'friends' ); ?>
+					</a>
+				</h5>
+			</div>
+			<div class="friends-widget">
+				<h5>
+					<a href="http://localhost/friends/reaction2b50/">
+						<i class="dashicons dashicons-star-filled"></i> <?php echo esc_attr_e( "Starred", 'friends' ); ?>
+					</a>
+				</h5>
+			</div>
+			<div class="friends-widget">
+				<h5>Search</h5>
+				<form action="<?php echo esc_url( self_admin_url( 'admin.php?page=add-friend' ) ); ?>" method="post" class="input-group input-inline form-autocomplete">
+					<?php wp_nonce_field( 'add-friend' ); ?>
+					<div class="form-autocomplete-input form-input">
+						<div class="has-icon-right">
+							<input class="form-input" type="text"  tabindex="2" name="friend_url" placeholder="<?php echo esc_attr_e( "@user@url", 'friends' ); ?>" />
+							<i class="form-icon"></i>
+						</div>
+					</div>
+						<button class="btn btn-primary input-group-btn">
+							<span class="dashicons dashicons-search"></span>
+						</button>
+				</form>
+			</div>
+			<div class="friends-widget">
+				<h5>
+					<a href="/wp-admin">
+						<i class="dashicons dashicons-wordpress"></i> <?php echo esc_attr_e( "Dashboard", 'friends' ); ?>
+					</a>
+				</h5>
+			</div>
+			<?php // dynamic_sidebar( 'friends-sidebar' ); ?>
 		</div>
-		
 	</div>
 
 	<a class="off-canvas-overlay" href="#close"></a>
