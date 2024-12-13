@@ -71,7 +71,7 @@ add_filter(
 			</div>
 			<div class="friends-widget">
 				<h5>
-					<a href="<?php echo esc_url( home_url( '/friends/reaction2b50/' ) ); ?>
+					<a href="<?php echo esc_url( home_url( '/friends/reaction2b50/' ) ); ?>">
 						<i class="dashicons dashicons-star-filled"></i> <?php echo esc_attr_e( "Starred", 'friends' ); ?>
 					</a>
 				</h5>
