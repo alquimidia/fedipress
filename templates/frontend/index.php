@@ -6,6 +6,7 @@
  * @package Friends
  */
 
+
 Friends\Friends::template_loader()->get_template_part(
 	'frontend/header',
 	$args['post_format'],
@@ -17,8 +18,13 @@ $show_welcome = isset( $args['show_welcome'] ) && $args['show_welcome'];
 ?>
 <section class="posts columns <?php echo 'collapsed' === $args['frontend_default_view'] ? ' all-collapsed' : ''; ?>">
 	<?php
-	if ( $show_welcome || ! have_posts() ) {
-		?>
+	if(isset($pagename) && $pagename <> ""){
+		Friends\Friends::template_loader()->get_template_part(
+			'frontend/'.$pagename,
+			$args['post_format'],
+			$args
+		);
+	}else if ( $show_welcome || ! have_posts() ) {?>
 		<div class="card columns col-12">
 			<div class="card-body">
 			<?php
