@@ -38,3 +38,13 @@ add_filter( 'friends_template_paths_theme_fedipress', function( $file_paths ) {
 	$file_paths[ 15 ] = FEDIPRESS_PLUGIN_DIR . 'templates';
 	return $file_paths;
 } );
+
+add_filter(
+    'friends_frontend_post_types',
+    function ( array $array ) {
+        $array = array(
+			'post_type' => 'post'
+		);
+        return $array;
+    }
+);
