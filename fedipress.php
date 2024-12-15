@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Fedipress
+ * Plugin Name: FediPress
  * Description: A plugin to customize Friends Plugin layout
  * Plugin URI: github.com/alquimidia/fedipress/
  * Version: 1.0
@@ -27,10 +27,9 @@ add_action(
 	'friends_load_theme_fedipress',
 	function() {
 		$handle = 'fedipress';
-		$file = 'friends.css';
+		$file = 'style.css';
 		$version = Friends::VERSION;
-		wp_enqueue_style( $handle, plugins_url( $file, FEDIPRESS_PLUGIN_DIR . 'css/friends.css' ), array(), apply_filters( 'friends_debug_enqueue', $version, $handle, FEDIPRESS_PLUGIN_DIR . '/' . $file ) );
-        wp_enqueue_script('fedipress-script', plugin_dir_url(__FILE__) . 'js/friends.js', array('jquery'), null, true);
+		wp_enqueue_style( $handle, plugins_url( $file, FEDIPRESS_PLUGIN_DIR . 'css/style.css' ), array(), apply_filters( 'friends_debug_enqueue', $version, $handle, FEDIPRESS_PLUGIN_DIR . '/' . $file ) );
 	}
 );
 

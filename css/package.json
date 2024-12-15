@@ -14,7 +14,7 @@
 		"lint:js:fix": "npm run lint:js -- --fix",
 		"test": "wp-scripts test-unit-js",
 		"packages-update": "wp-scripts packages-update",
-		"sass:compile": "sass friends.scss:friends.css -s compressed",
-		"sass:watch": "sass friends.scss:friends.css -w -s compressed"
+		"sass:compile": "sass style.scss:style.css -s compressed",
+		"sass:watch": "sass style.scss:style.css -w -s compressed"
 	}
 }

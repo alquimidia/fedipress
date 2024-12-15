@@ -676,6 +676,10 @@ h2#page-title a.dashicons {
 
 	section.followers {
 		ul li {
+			details{
+				box-shadow: 0 .25rem 1rem rgba(48,55,66,.15);
+				padding: 20px;
+			}
 			list-style: none;
 			.already-following {
 				color: #ccc;
@@ -1011,6 +1015,9 @@ h2#page-title a.dashicons {
 		}
 		.btn{
 			background: #313443 !important;
+		}
+		.followers ul li details{
+				background: #313443 !important;
 		}
 		#friends-sidebar {
 			.friends-nav {
