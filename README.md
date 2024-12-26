@@ -2,6 +2,10 @@
 
 Wordpress Plugin to customize [Friends Plugin](https://github.com/akirk/friends) feed.
 
+![alt text](img/sidebar.png)
+
+FediPress sets some sidebar widgets fixed and publishes made in form public by default
+
 ## Instalation
 
 > You must have the Friends plugin installed
