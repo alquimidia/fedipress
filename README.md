@@ -2,8 +2,7 @@
 
 Wordpress Plugin to customize [Friends Plugin](https://github.com/akirk/friends) feed.
 
-- Contributors: @liviacarolgouvea
-- Tested up to: 6.7
+- Tested in WordPress up to: 6.7
 - License: GPL-3
 
 FediPress sets some sidebar widgets fixed and publishes made in form are public by default.
