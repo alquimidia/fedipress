@@ -45,7 +45,7 @@ add_filter(
 					<input type="hidden" name="action" value="friends_publish" />
 					<input class="form-input" type="text" name="title" value=""  />
 					<textarea class="form-input"  name="content" rows="5" cols="70"></textarea>
-					<button class="btn btn-primary input-group-btn"><?php _e( 'Publicar', 'friends' ); ?></button>
+					<button class="btn btn-primary input-group-btn"><?php _e( 'Publish', 'friends' ); ?></button>
 				</form>
 			</div>
 			<div class="friends-widget">
