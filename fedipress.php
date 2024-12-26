@@ -30,6 +30,7 @@ add_action(
 		$file = 'style.css';
 		$version = Friends::VERSION;
 		wp_enqueue_style( $handle, plugins_url( $file, FEDIPRESS_PLUGIN_DIR . 'css/style.css' ), array(), apply_filters( 'friends_debug_enqueue', $version, $handle, FEDIPRESS_PLUGIN_DIR . '/' . $file ) );
+		wp_enqueue_style('dashicons', "wp-includes/css/dashicons.min.css" );
 	}
 );
 
