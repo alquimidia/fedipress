@@ -32,7 +32,10 @@ add_filter(
 <body <?php body_class( 'off-canvas off-canvas-sidebar-show' ); ?>>
 	<div id="friends-sidebar" class="off-canvas-sidebar">
 		<div class="friends-brand">
-			<a class="friends-logo" href="<?php echo esc_url( home_url( '/friends/' ) ); ?>"><h2>Fedipress</h2></a>
+			<a class="friends-logo" href="<?php echo esc_url( home_url( '/friends/' ) ); ?>">
+			<img src="<?php echo esc_url( plugins_url( '/fedipress/img/logo.png' ) ); ?>" width="36" height="36">
+				<h2>Fedipress</h2>
+			</a>
 			<a class="friends-sidebar-customize" href="<?php echo esc_url( add_query_arg( 'url', home_url( '/friends/' ), admin_url( 'customize.php?autofocus[section]=sidebar-widgets-friends-sidebar' ) ) ); ?>"><?php esc_html_e( 'customize sidebar', 'friends' ); ?></a>
 		</div>
 		<div class="friends-nav accordion-container">
@@ -49,7 +52,7 @@ add_filter(
 				<h5>
 					<span class="dashicons dashicons-update"></span>
 					<a href="<?php echo esc_url( home_url( '/friends/?refresh' ) ); ?>">
-						<?php echo esc_html__( 'Refresh Feed', 'friends' );?>
+						<?php echo esc_html_e( 'Refresh Feed', 'friends' );?>
 					</a>
 				</h5>
 			</div>
@@ -57,7 +60,7 @@ add_filter(
 				<h5>
 					<a class="followers" href="<?php echo esc_url( home_url( '/friends/followers/' ) ); ?>">
 						<span class="dashicons dashicons-admin-users"></span>
-						<?php echo esc_attr_e( "Followers", 'friends' ); ?>
+						<?php echo esc_html_e( "Followers", 'friends' ); ?>
 					</a>
 				</h5>
 			</div>
@@ -65,7 +68,7 @@ add_filter(
 				<h5>
 					<a class="followers" href="<?php echo esc_url( home_url( '/friends/following/' ) ); ?>">
 						<span class="dashicons dashicons-admin-users"></span>
-						<?php echo esc_attr_e( "FollowING", 'friends' ); ?>
+						<?php echo esc_html_e( "Following", 'friends' ); ?>
 					</a>
 				</h5>
 			</div>
@@ -94,7 +97,7 @@ add_filter(
 			<div class="friends-widget">
 				<h5>
 					<a href="/wp-admin">
-						<i class="dashicons dashicons-wordpress"></i> <?php echo esc_attr_e( "Dashboard", 'friends' ); ?>
+						<i class="dashicons dashicons-wordpress"></i> <?php echo esc_html_e( "Dashboard", 'friends' ); ?>
 					</a>
 				</h5>
 			</div>
