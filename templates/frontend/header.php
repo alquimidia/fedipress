@@ -33,7 +33,7 @@ add_filter(
 	<div id="friends-sidebar" class="off-canvas-sidebar">
 		<div class="friends-brand">
 			<a class="friends-logo" href="<?php echo esc_url( home_url( '/friends/' ) ); ?>">
-			<img src="<?php echo esc_url( plugins_url( '/fedipress/img/logo.png' ) ); ?>" width="36" height="36">
+			<img src="<?php echo esc_url( plugins_url( 'img/logo.png', dirname( __DIR__ ) ) ); ?>" width="36" height="36">
 				<h2>Fedipress</h2>
 			</a>
 			<a class="friends-sidebar-customize" href="<?php echo esc_url( add_query_arg( 'url', home_url( '/friends/' ), admin_url( 'customize.php?autofocus[section]=sidebar-widgets-friends-sidebar' ) ) ); ?>"><?php esc_html_e( 'customize sidebar', 'friends' ); ?></a>
