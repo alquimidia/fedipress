@@ -42,9 +42,11 @@ add_filter( 'friends_template_paths_theme_fedipress', function( $file_paths ) {
 add_filter(
     'friends_frontend_post_types',
     function ( array $array ) {
-        $array = array(
-			'post_type' => 'post'
-		);
-        return $array;
+		if($_SERVER["REQUEST_URI"] == "/friends/"){
+			$array = array(
+				'post_type' => 'post'
+			);
+		}
+		return $array;
     }
 );
