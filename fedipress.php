@@ -3,7 +3,7 @@
  * Plugin Name: FediPress
  * Description: A plugin to customize Friends Plugin layout
  * Plugin URI: github.com/alquimidia/fedipress/
- * Version: 1.0
+ * Version: 1.0.2
  * Author: Lívia Gouvêa
  * License: GPL3
  * Text Domain: friends
